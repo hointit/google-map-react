@@ -77,7 +77,7 @@ export default (bootstrapURLKeys, heatmapLibrary) => {
     console.log('API_PATH=' + API_PATH);
 
     $script_(
-      `${baseUrl}${API_PATH}$sensor=true`,
+      `${baseUrl}${API_PATH}`,
       () =>
         typeof window.google === 'undefined' &&
         reject(new Error('google map initialization error (not loaded)'))
