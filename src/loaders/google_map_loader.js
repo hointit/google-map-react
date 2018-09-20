@@ -73,8 +73,14 @@ export default (bootstrapURLKeys, heatmapLibrary) => {
     const baseUrl = getUrl(bootstrapURLKeys.region);
     const libraries = heatmapLibrary ? '&libraries=visualization' : '';
 
+    // $script_(
+    //   `${baseUrl}${API_PATH}${params}${libraries}`,
+    //   () =>
+    //     typeof window.google === 'undefined' &&
+    //     reject(new Error('google map initialization error (not loaded)'))
+    // );
     $script_(
-      `${baseUrl}${API_PATH}${params}${libraries}`,
+      `https://maps.googleapis.com/maps/api/js?&callback=initMap`,
       () =>
         typeof window.google === 'undefined' &&
         reject(new Error('google map initialization error (not loaded)'))
