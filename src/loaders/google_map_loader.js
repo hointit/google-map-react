@@ -65,10 +65,10 @@ export default (bootstrapURLKeys, heatmapLibrary) => {
       }
     }
 
-    const params = Object.keys(bootstrapURLKeys).reduce(
-      (r, key) => `${r}&${key}=${bootstrapURLKeys[key]}`,
-      ''
-    );
+    // const params = Object.keys(bootstrapURLKeys).reduce(
+    //   (r, key) => `${r}&${key}=${bootstrapURLKeys[key]}`,
+    //   ''
+    // );
 
     const baseUrl = getUrl(bootstrapURLKeys.region);
     const libraries = heatmapLibrary ? '&libraries=visualization' : '';
