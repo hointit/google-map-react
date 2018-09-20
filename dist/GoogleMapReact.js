@@ -2888,15 +2888,12 @@
               console.log(API_PATH);
               console.log(params);
 
-              $script_(
-                '' + baseUrl + API_PATH + params + libraries,
-                function() {
-                  return typeof window.google === 'undefined' &&
-                    reject(
-                      new Error('google map initialization error (not loaded)')
-                    );
-                }
-              );
+              $script_('' + baseUrl + API_PATH + '$sensor=true', function() {
+                return typeof window.google === 'undefined' &&
+                  reject(
+                    new Error('google map initialization error (not loaded)')
+                  );
+              });
               // $script_(
               //   `https://maps.googleapis.com/maps/api/js?&callback=initMap`,
               //   () =>
